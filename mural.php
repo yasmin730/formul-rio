@@ -1,5 +1,7 @@
 <?php
 include "conexao.php";
+
+// Inserir novo pedido/recado
 if(isset($_POST['cadastra'])){
     $nome  = mysqli_real_escape_string($conexao, $_POST['nome']);
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
@@ -11,7 +13,6 @@ if(isset($_POST['cadastra'])){
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -55,10 +56,11 @@ $(document).ready(function() {
     <input type="submit" value="Publicar no Mural" name="cadastra" class="btn"/>
 </form>
 </div>
+
 <?php
 $seleciona = mysqli_query($conexao, "SELECT * FROM yasmin_tabela ORDER BY id DESC");
 while($res = mysqli_fetch_assoc($seleciona)){
-    echo '<ul class="yasmin_tabela">';
+    echo '<ul class="recados">';
     echo '<li><strong>ID:</strong> ' . $res['id'] . '</li>';
     echo '<li><strong>Nome:</strong> ' . htmlspecialchars($res['nome']) . '</li>';
     echo '<li><strong>Email:</strong> ' . htmlspecialchars($res['email']) . '</li>';
@@ -66,7 +68,9 @@ while($res = mysqli_fetch_assoc($seleciona)){
     echo '</ul>';
 }
 ?>
+
 <div id="footer">
+
 </div>
 </div>
 </div>
