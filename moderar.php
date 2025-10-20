@@ -54,7 +54,7 @@ if($editar_id){
     <label>Mensagem:</label>
     <textarea name="msg"><?php echo htmlspecialchars($recado_editar['mensagem']); ?></textarea><br/>
     <input type="hidden" name="id" value="<?php echo $recado_editar['id']; ?>"/>
-    <input type="submit" name="atualiza" value="Modificar Recado" class="btn"/>
+    <input type="submit" name="atualiza" value="Modificar yasmin_tabela" class="btn"/>
 </form>
 </div>
 <?php endif; ?>
@@ -65,7 +65,7 @@ if(mysqli_num_rows($seleciona) <= 0){
     echo "<p>Nenhum pedido no mural!</p>";
 }else{
     while($res = mysqli_fetch_assoc($seleciona)){
-        echo '<ul class="recados">';
+        echo '<ul class="yasmin_tabela">';
         echo '<li><strong>ID:</strong> ' . $res['id'] . ' | 
               <a href="moderar.php?acao=excluir&id=' . $res['id'] . '">Remover</a> | 
               <a href="moderar.php?acao=editar&id=' . $res['id'] . '">Modificar</a></li>';
